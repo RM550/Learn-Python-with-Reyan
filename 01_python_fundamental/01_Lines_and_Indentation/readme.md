@@ -1,7 +1,3 @@
-**Walaikum Assalam!** Here's the same README translated into **English** with clear explanations and professional formatting. 🚀
-
----
-
 # 📚 **Mastering Lines and Indentation in Programming** 🛠️  
 
 In programming, **lines** and **indentation** are essential concepts that not only improve the readability and structure of your code but also set the standard for professionalism. In this README, we’ll explore these concepts in detail. 🌟  
