@@ -155,4 +155,7 @@ print(loaded_data)  # Output: {'message': 'こんにちは 🌸'}
 - Always specify encodings explicitly to avoid errors. 🚀
 - Use libraries and tools for smooth handling of text in different languages. 📚🌈
 
+---
+
 **Happy Encoding! 🎉🌐✨**
+---
