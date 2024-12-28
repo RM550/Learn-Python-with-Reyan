@@ -157,5 +157,6 @@ print(loaded_data)  # Output: {'message': 'こんにちは 🌸'}
 
 ---
 
-**Happy Encoding! 🎉🌐✨**
+**Happy coding! 🎉🌐✨**
+
 ---
