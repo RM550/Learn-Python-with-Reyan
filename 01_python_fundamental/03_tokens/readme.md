@@ -1,4 +1,4 @@
-# Python Tokens Explained 🚀🐍
+# Tokens in python 🚀🐍
 
 Tokens are the **building blocks** of any Python program. Each piece of text in your code that the Python interpreter understands is a token. Think of them as the vocabulary of the Python language! 📖✨
 
