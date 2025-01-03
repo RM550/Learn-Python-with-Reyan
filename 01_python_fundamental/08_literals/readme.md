@@ -1,10 +1,10 @@
 # Python Literals 📜🎉
 
-Python literals wo values hoti hain jo directly code mein likhi jaati hain. Ye values different types ki hoti hain jaise numbers, strings, booleans, etc. 💥✨
+Python literals are values that are directly written in the code. These values are of different types such as numbers, strings, booleans, etc. 💥✨
 
 ## Types of Python Literals 🧾🔍
 
-Python mein following types ke literals hain: 🌟
+Python has the following types of literals: 🌟
 
 1. **String Literals** 📝💬
 2. **Numeric Literals** 🔢💡
@@ -14,7 +14,7 @@ Python mein following types ke literals hain: 🌟
 
 ## 1. String Literals 📝💬
 
-String literals wo text hoti hain jo quotation marks (`' '` ya `" "`) ke andar likhi jaati hain. 📚🔠
+String literals are text enclosed in quotation marks (`' '` or `" "`). 📚🔠
 
 ### Example:
 ```python
@@ -36,7 +36,7 @@ print(text.upper())   # Output: HELLO PYTHON 🎯
 
 ## 2. Numeric Literals 🔢💡
 
-Numeric literals wo numbers hoti hain jo directly likhe jaate hain. 🔢⚡
+Numeric literals are numbers written directly in the code. 🔢⚡
 
 ### Types:
 - **Integer Literals** 🔢🎯: Pure numbers 🔥
@@ -52,7 +52,7 @@ complex_num = 2 + 3j  # Complex number ⚛️
 
 ## 3. Boolean Literals ✅❌
 
-Boolean literals sirf do values rakhte hain: `True` ya `False`. ✅❌💥
+Boolean literals have only two values: `True` or `False`. ✅❌💥
 
 ### Example:
 ```python
@@ -62,7 +62,7 @@ is_finished = False  # Boolean False ❌
 
 ## 4. Special Literals 🔑💎
 
-Python mein ek special literal hai: **None**. 🗝️🚪
+Python has one special literal: **None**. 🗝️🚪
 
 ### Example:
 ```python
@@ -71,7 +71,7 @@ nothing = None  # Represents no value 🚫
 
 ## 5. Collection Literals 🧳🔢
 
-Python mein collection types ka literal format alag hota hai, jaise: 🧳🔤
+Python has different formats for collection literals, such as: 🧳🔤
 
 - **List Literals** 📋📝: A list of values 📝
 - **Tuple Literals** 🔗🔒: An ordered, immutable collection 🔐
@@ -112,4 +112,8 @@ my_dict = {"name": "John", "age": 30}  # Dictionary 📚🔑
 
 ## Conclusion 🏁🎉
 
-Python mein literals ka use bohot common hai, aur ye code ko simplify karte hain. Aap inko different data types ke liye use kar sakte hain. Har literal ka apna ek special role hota hai jo programming ko efficient banata hai! 🌟🚀
+Python literals are very common, and they simplify code. You can use them for different data types. Each literal has its own special role that makes programming more efficient! 🌟🚀
+
+---
+Happy coding 🌟🚀
+---
