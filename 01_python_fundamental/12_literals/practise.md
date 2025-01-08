@@ -68,12 +68,6 @@ Write a program that finds and prints all prime numbers between 1 and 100 using 
 ### Task 12: Multiples of a Number
 Take two inputs: a number and a range limit. Print all multiples of the number up to the range limit using a loop. 🌢➕
 
-### Task 13: Grade Calculator
-Take input for marks scored in 5 subjects and calculate the average. Assign a grade based on the average using conditional statements inside a loop. 🎓🌿
-
-### Task 14: Star Diamond Pattern
-Create a diamond pattern using stars (`*`). The user will provide the height of the diamond (half of its size). Use nested loops. 🌟✨
-
 ---
 
 ## Tips for Solving Tasks ⚡✨
