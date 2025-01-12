@@ -4,13 +4,6 @@ Strings in Python are equipped with numerous **methods** that help us manipulate
 
 ---
 
-## Table of Contents 📜✨
-1. [String Methods Overview](#string-methods-overview) 🛠️✨
-2. [String Methods with Examples](#string-methods-with-examples) 🧰✨
-3. [Advanced Examples](#advanced-examples) 🚀✨
-
----
-
 ## String Methods Overview 🛠️✨
 
 Here is a quick summary of common string methods in Python: 📝✨
