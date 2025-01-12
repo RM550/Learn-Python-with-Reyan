@@ -4,17 +4,6 @@ Strings in Python are sequences of characters enclosed in single quotes `'...'`,
 
 ---
 
-## Table of Contents 📜✨
-1. [What are Strings?](#what-are-strings) 🤔
-2. [Types of Strings](#types-of-strings) 📝
-3. [Common String Operations](#common-string-operations) 🛠️
-4. [String Methods](#string-methods) 🧰
-5. [Formatting Strings](#formatting-strings) 🎨
-6. [Escape Sequences](#escape-sequences) 🚪
-7. [Examples](#examples) 🌟
-
----
-
 ## What are Strings? 🤔✨
 
 A **string** is a collection of characters. It can include letters, numbers, and symbols. For example: ✨🐍
