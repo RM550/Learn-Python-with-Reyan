@@ -13,6 +13,7 @@ An **abstract class** is a class that **cannot be instantiated** (i.e., you cann
 🔹 Abstract classes **can** have both regular (concrete) methods and abstract methods.
 🔹 They **force** subclasses to implement certain methods.
 🔹 They are useful in defining a common interface for a group of related classes.
+🔹 They help in achieving **partial implementation** while enforcing structure.
 
 ### 📖 Example (Python):
 
@@ -41,6 +42,7 @@ An **abstract method** is a method **without implementation** in the parent clas
 🔹 Defined using the `@abstractmethod` decorator from the `abc` module.
 🔹 Forces child classes to provide an implementation.
 🔹 Ensures a **consistent** interface across different subclasses.
+🔹 Abstract methods must be implemented in subclasses before an object can be created.
 
 ### 📖 Example of an Abstract Method:
 
@@ -68,6 +70,8 @@ d.sleep()       # Outputs: Zzz... Animal is sleeping! 😴
 ✅ **Polymorphism** – Child classes can provide different implementations for the same method. 🔄
 ✅ **Enforces Structure** – Ensures all subclasses follow the same rules. 📜
 ✅ **Avoids Instantiating Base Classes** – Prevents creating incomplete objects. ❌
+✅ **Encourages Code Reusability** – Reduces code duplication. ♻️
+✅ **Improves Maintainability** – Enhances long-term code structure. 🏗️
 
 ---
 
@@ -78,6 +82,7 @@ d.sleep()       # Outputs: Zzz... Animal is sleeping! 😴
 📌 **Child classes must implement all abstract methods.**
 📌 **Cannot instantiate abstract classes directly.**
 📌 **Abstract classes can have both abstract and concrete methods.**
+📌 **Abstract methods can be overridden in multiple subclasses.**
 
 ---
 
@@ -114,6 +119,31 @@ paypal.process_payment(50)  # Output: Processing PayPal payment of $50 🏦
 
 ---
 
+## 🔄 Differences Between Abstract Classes and Interfaces
+
+| Feature           | Abstract Class        | Interface  |
+|------------------|----------------------|------------|
+| Can have concrete methods? | ✅ Yes | ❌ No (only method signatures) |
+| Can have constructors? | ✅ Yes | ❌ No |
+| Can have instance variables? | ✅ Yes | ❌ No |
+| Multiple inheritance? | ❌ No (single inheritance) | ✅ Yes (multiple interfaces) |
+| Flexibility | ✅ Medium | ✅ High |
+
+### 🔹 Example of an Interface in Python:
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+```
+
+Interfaces allow a more flexible design, enabling multiple classes to implement multiple interfaces.
+
+---
+
 ## 🎯 Conclusion
 
 Abstract classes and methods are essential tools in object-oriented programming that help maintain code **structure, reusability, and enforce a consistent API**. 🔥
@@ -122,5 +152,6 @@ Abstract classes and methods are essential tools in object-oriented programming 
 ✅ Use abstract classes when you need a blueprint for multiple related classes.
 ✅ Abstract methods ensure that child classes follow a predefined structure.
 ✅ They **prevent direct instantiation** while allowing flexible implementations.
+✅ Know the difference between abstract classes and interfaces for better design.
 
 🙌 Keep coding and exploring new concepts! 🚀🔥
