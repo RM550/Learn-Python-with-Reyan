@@ -184,6 +184,7 @@ This shows all variables, functions, and objects in the global namespace, includ
 - Module namespaces allow you to **avoid name conflicts** by ensuring that names in one module don't interfere with names in other modules.
 - You can control and access module namespaces easily, which improves code organization and reusability.
 
-Understanding how module namespaces work will help you write clean, maintainable code and avoid unexpected behavior in your Python programs. 
+Understanding how module namespaces work will help you write clean, maintainable code and avoid unexpected behavior in your Python programs.
+
 Happy coding! 🚀🐍
 ---
