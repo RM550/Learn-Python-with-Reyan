@@ -1,7 +1,3 @@
-### 📜 **Python Generators - Everything You Need to Know**  
-
-
-
 
 # 🔥 **Python Generators: The Ultimate Guide**  
 
