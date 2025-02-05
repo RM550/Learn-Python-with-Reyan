@@ -1,6 +1,6 @@
 
 
-## 🔥 **Introduction to Python Types**  
+# 🔥 **Introduction to Python Types**  
 
 Python is a **dynamically typed** language, meaning you don’t need to explicitly define the type of a variable—it’s determined at runtime. However, Python has a rich set of built-in **data types** that help in managing different kinds of data efficiently.  
 
