@@ -1,8 +1,3 @@
-Here’s a **massive and detailed README** about the **Typing System in Python** with explanations, examples, and best practices. 🚀🐍  
-
----
-
-# 📜 **README: Python Typing System - Everything You Need to Know**  
 
 ## 🔥 **Introduction to Python's Typing System**  
 
