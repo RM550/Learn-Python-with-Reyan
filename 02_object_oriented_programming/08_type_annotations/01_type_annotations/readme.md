@@ -1,4 +1,4 @@
-# 📌 Comprehensive Guide to Python Type Annotations 🐍
+# 📌Type Annotations 🐍
 
 ## 🚀 Introduction
 Python is a dynamically typed language, meaning variables do not require explicit type declarations. However, with the introduction of **PEP 484** in Python 3.5, Type Annotations were introduced to help improve code readability, maintainability, and debugging.
