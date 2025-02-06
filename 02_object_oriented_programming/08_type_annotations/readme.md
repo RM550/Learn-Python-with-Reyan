@@ -1,4 +1,4 @@
-# 📌 Python Type Annotations Guide 🐍
+# 📌 Python Type Annotations  🐍
 
 ## 🚀 Introduction
 Type annotations in Python help improve code readability, catch potential bugs early, and assist with static analysis tools. They were introduced in **PEP 484** and became widely used in Python 3.5+.
