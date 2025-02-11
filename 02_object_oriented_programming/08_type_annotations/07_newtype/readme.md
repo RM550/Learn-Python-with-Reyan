@@ -1,4 +1,4 @@
-# `NewType` in Python Type Annotations
+# NewType Annotations
 
 ## Introduction 📌
 
