@@ -1,138 +1,151 @@
-# Annotated Type in Type Annotations (Python)
+# `NewType` in Python Type Annotations
 
 ## Introduction 📌
 
-The **Annotated** type annotation in Python was introduced in **PEP 593** and added in **Python 3.9**. It allows developers to attach metadata to type hints, enabling additional information for static type checkers, runtime validation, and documentation.
+The `NewType` feature in Python was introduced in **PEP 484** and is available from **Python 3.5+**. It allows developers to create **distinct types** based on existing ones, enabling stricter type checking without introducing runtime overhead.
 
-## Why Use `Annotated`? 🤔
+## Why Use `NewType`? 🤔
 
-- **Adds metadata to types**: Helps provide extra context.
-- **Enhances static analysis**: Type checkers can use metadata to enforce constraints.
-- **Useful for validation**: Can integrate with libraries like `pydantic` and `attrs`.
-- **Improves documentation**: Clearer function signatures.
+- **Enhances type safety**: Prevents accidental mixing of different types.
+- **Provides better documentation**: Clearly distinguishes between logically different entities.
+- **Zero runtime overhead**: Acts as a simple wrapper without additional performance cost.
+- **Improves code readability**: Makes function signatures clearer.
 
-## Syntax 📝
+## Importing `NewType` 📝
 
-The `Annotated` type is imported from the `typing` module:
-
-```python
-from typing import Annotated
-```
-
-### Basic Example 🎯
+The `NewType` function is imported from the `typing` module:
 
 ```python
-from typing import Annotated
-
-def process_data(value: Annotated[int, "Must be positive"]) -> None:
-    print(f"Processing: {value}")
-
-process_data(10)  # ✅ Valid
-process_data(-5)  # ⚠️ No runtime enforcement (metadata only)
+from typing import NewType
 ```
 
-## Using `Annotated` for Validation 🚀
-
-Since `Annotated` does not enforce rules at runtime, you can use libraries like `pydantic` for validation.
+## Basic Example 🎯
 
 ```python
-from typing import Annotated
-from pydantic import BaseModel, Field
+from typing import NewType
 
-class User(BaseModel):
-    age: Annotated[int, Field(ge=18)]  # Age must be >= 18
+UserId = NewType('UserId', int)
 
-user = User(age=20)  # ✅ Valid
-user = User(age=15)  # ❌ Raises validation error
+def get_user(user_id: UserId) -> None:
+    print(f"Fetching user with ID: {user_id}")
+
+user = UserId(123)  # ✅ Valid
+get_user(user)  # ✅ Valid
+
+invalid_user = 456  # ❌ Type checker will raise an error
+get_user(invalid_user)  # ❌ Type error
 ```
 
-## Combining `Annotated` with Multiple Metadata 📦
+## How `NewType` Works 🔍
 
-You can attach multiple metadata values:
+- `NewType('Alias', OriginalType)` creates a **new distinct type** based on `OriginalType`.
+- It prevents **accidental misuse** by ensuring only the correct type is passed.
+- It does **not** create a new class; it behaves like the original type at runtime but is **treated as a separate type** during static analysis.
+
+## Example: Using `NewType` for Stronger Typing ✅
 
 ```python
-from typing import Annotated
+from typing import NewType
 
-def set_temperature(temp: Annotated[float, "Celsius", "Must be between 0 and 100"]) -> None:
-    print(f"Temperature set to: {temp}")
+EmployeeId = NewType('EmployeeId', int)
+ProjectId = NewType('ProjectId', int)
 
-set_temperature(25.5)  # ✅ Valid
+def assign_project(employee: EmployeeId, project: ProjectId) -> None:
+    print(f"Assigning employee {employee} to project {project}")
+
+e_id = EmployeeId(101)
+p_id = ProjectId(2001)
+
+assign_project(e_id, p_id)  # ✅ Valid
+assign_project(p_id, e_id)  # ❌ Type checker error
 ```
 
-## `Annotated` with Callable Metadata ⚡
+## Difference Between `NewType` and Type Alias 🔄
 
-Functions can be used as metadata:
+`NewType` is **not the same** as a regular type alias.
 
 ```python
-from typing import Annotated, Callable
+UserIdAlias = int  # This is just an alias, not a distinct type
+UserIdNewType = NewType('UserIdNewType', int)
 
-def validate_positive(value: int) -> int:
-    if value < 0:
-        raise ValueError("Value must be positive")
-    return value
+def process_user(user: UserIdNewType) -> None:
+    print(f"Processing user {user}")
 
-PositiveInt = Annotated[int, validate_positive]
-
-def process_number(num: PositiveInt) -> None:
-    print(f"Processing: {num}")
-
-process_number(10)  # ✅ Valid
-process_number(-5)  # ❌ Raises ValueError
+uid_alias: UserIdAlias = 123  # ✅ Works fine
+process_user(uid_alias)  # ❌ Type checker error
 ```
 
-## Using `Annotated` with Type Aliases 🔗
+- `UserIdAlias = int` is simply a **shorthand** for `int` (no extra type safety).
+- `NewType('UserIdNewType', int)` creates a **distinct type** that prevents mixing with `int`.
+
+## Nesting `NewType` in Function Scope 🏗️
+
+`NewType` can be **defined inside functions** to limit its scope.
 
 ```python
-from typing import Annotated
+from typing import NewType
 
-NonNegativeInt = Annotated[int, "Must be >= 0"]
+def process_transaction():
+    TransactionId = NewType('TransactionId', int)
+    t_id = TransactionId(500)
+    print(f"Processing transaction {t_id}")
 
-def set_value(value: NonNegativeInt) -> None:
-    print(f"Value set to: {value}")
-
-set_value(5)  # ✅ Valid
-set_value(-1)  # ⚠️ No runtime enforcement
+process_transaction()  # ✅ Works fine
 ```
 
-## `Annotated` with `dataclasses` 🏗️
+## `NewType` and Subclassing 🚨
+
+`NewType` **does not support subclassing**.
 
 ```python
-from dataclasses import dataclass
-from typing import Annotated
+from typing import NewType
 
-@dataclass
-class Person:
-    name: Annotated[str, "Full name required"]
-    age: Annotated[int, "Age must be positive"]
+UserId = NewType('UserId', int)
 
-p = Person(name="John Doe", age=30)  # ✅ Valid
+class ExtendedUserId(UserId):  # ❌ This will raise an error
+    pass
 ```
 
-## Benefits of Using `Annotated` 🎉
+## Using `NewType` with `isinstance()` 🧐
 
-- **Improves documentation**: Adds meaningful metadata to type hints.
-- **Integrates with validation frameworks**: Libraries like `pydantic` can use it.
-- **Encourages better type annotations**: More expressive and structured code.
+Since `NewType` is just an alias at runtime, `isinstance()` treats it as the original type.
 
-## Limitations ⚠️
+```python
+from typing import NewType
 
-- **No enforcement at runtime**: Python does not enforce metadata automatically.
-- **Dependent on third-party tools**: Libraries like `pydantic` are needed for validation.
-- **Not all type checkers support it**: Some static analyzers may not fully utilize metadata.
+OrderId = NewType('OrderId', int)
+order = OrderId(789)
+
+print(isinstance(order, int))  # ✅ True (NewType behaves like int at runtime)
+```
+
+## When to Use `NewType`? 🎯
+
+✅ Use `NewType` when:
+- You want to **prevent unintended type mixing**.
+- You need **static type checking** for distinct entities.
+- You require **better code clarity and documentation**.
+- You want **zero runtime performance cost**.
+
+🚫 Avoid `NewType` if:
+- You **need runtime enforcement** (use classes instead).
+- You require **custom methods and behavior** (use a class instead).
+- You are working with **simple type aliases** (use `type Alias = OriginalType`).
 
 ## Summary 📌
 
 | Feature | Supported? |
 |---------|------------|
-| Basic Metadata | ✅ |
-| Multiple Metadata | ✅ |
-| Callable Metadata | ✅ |
-| Runtime Enforcement | ❌ (Requires additional tools) |
-| Integration with `pydantic` | ✅ |
+| Type safety | ✅ |
+| Runtime overhead | ❌ (No overhead) |
+| Works with `isinstance()` | ✅ |
+| Prevents accidental mixing | ✅ |
+| Supports subclassing | ❌ |
+| Allows runtime validation | ❌ |
 
 ## Conclusion 🎯
 
-Using `Annotated` in Python allows developers to provide extra information on type hints, making code **more readable, structured, and useful** for static analysis and validation frameworks. However, since Python does not enforce metadata at runtime, it is often used in combination with libraries like **pydantic** for validation.
+The `NewType` feature in Python provides a **lightweight way to enforce stronger typing** without introducing runtime overhead. It helps distinguish logically different types and prevents accidental misuse, making your code **safer, clearer, and more maintainable**.
 
 🚀 **Happy Coding!** 🚀
 
